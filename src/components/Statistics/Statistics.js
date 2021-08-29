@@ -19,7 +19,11 @@ export default function Statistics({ title = '', stats }) {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ),
 };
 function StatEl({ label, percentage }) {
   return (
@@ -30,6 +34,6 @@ function StatEl({ label, percentage }) {
   );
 }
 StatEl.propTypes = {
-  label: PropTypes.string,
-  percentage: PropTypes.number,
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
